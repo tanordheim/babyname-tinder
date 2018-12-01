@@ -1,0 +1,30 @@
+{{ define "content" }}
+<h1 class="babyname-heading">Matches</h1>
+<p>
+  These are all the names you both have matched on.
+  <a href="/matches/export_csv" class="btn btn-outline-secondary btn-sm">
+    <i class="fas fa-download"></i> Download CSV
+  </a>
+</p>
+
+<table class="table text-left">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col" class="text-right">When</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range . }}
+      <tr>
+        <td scope="row">
+          {{ .Name }}
+          {{ if .DadSuperliked }}<span class="badge badge-primary">dad superliked</span>{{ end }}
+          {{ if .MomSuperliked }}<span class="badge badge-success">mom superliked</span>{{ end }}
+        </td>
+        <td class="text-right">{{ .MatchedAt }}</td>
+      </tr>
+    {{ end }}
+  </tbody>
+</table>
+{{ end }}

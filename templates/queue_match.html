@@ -1,0 +1,14 @@
+{{ define "content" }}
+<h1 class="babyname-heading">It's a match!</h1>
+
+<div class="babyname-image">
+  <img src="/static/{{ .Image }}" alt="{{ .Name }}" class="img-thumbnail">
+</div>
+
+<p>You have both liked the name:</p>
+<h4 class="babyname-name">{{ .Name }}</h4>
+
+<p>
+  <a href="/" class="btn btn-primary">Continue</a>
+</p>
+{{ end }}

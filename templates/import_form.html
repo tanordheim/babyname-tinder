@@ -1,0 +1,15 @@
+{{ define "content" }}
+<h1 class="babyname-heading">Import new names</h1>
+<p>
+  Paste names into the field below, one name per line.
+</p>
+
+<form method="POST" action="/import">
+  <div class="form-group">
+    <label for="names">Names</label>
+    <textarea class="form-control" name="names" id="names" rows="25"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Import</button>
+</form>
+{{ end }}

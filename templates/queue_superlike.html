@@ -1,0 +1,43 @@
+{{ define "content" }}
+<div class="babyname-superlike-container">
+  <h1 class="babyname-heading">{{ .Who }} superliked a name!</h1>
+
+  <div class="babyname-image">
+    <img src="/static/{{ .Image }}" alt="{{ .Name }}" class="img-thumbnail">
+  </div>
+
+  <p>{{ .Who }} has superliked the name:</p>
+  <h4 class="babyname-name">{{ .Name }}</h4>
+
+  <p>What do you think?</p>
+
+  <div class="babyname-response-form">
+    <div class="row justify-content-center">
+      <div class="col-2">
+        <form action="/like" method="POST">
+          <input type="hidden" name="name" value="{{ .Name }}">
+          <button type="submit" class="btn btn-lg btn-block btn-danger" type="submit">
+            <i class="fas fa-heart"></i>
+          </button>
+        </form>
+      </div>
+      <div class="col-2">
+        <form action="/superlike" method="POST">
+          <input type="hidden" name="name" value="{{ .Name }}">
+          <button type="submit" class="btn btn-lg btn-block btn-warning" type="submit">
+            <i class="fas fa-star"></i>
+          </button>
+        </form>
+      </div>
+      <div class="col-2">
+        <form action="/dislike" method="POST">
+          <input type="hidden" name="name" value="{{ .Name }}">
+          <button type="submit" class="btn btn-lg btn-block btn-dark" type="submit">
+            <i class="fas fa-thumbs-down"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

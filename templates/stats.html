@@ -1,0 +1,24 @@
+{{ define "content" }}
+<h1 class="babyname-heading">Stats</h1>
+<ul>
+  <li>
+    Total names in database: {{ .Total }}
+  </li>
+  <li>
+    Number of liked names: {{ .Liked }}
+  </li>
+  <li>
+    Number of disliked names: {{ .Disliked }}
+  </li>
+  <li>
+    Number of matched names: {{ .Matched }}
+  </li>
+  <li>
+    Number of names in queue: {{ .Queued }}
+  </li>
+</ul>
+
+<p>
+  Note that the number of names in queue includes names that only have been been disliked once.
+</p>
+{{ end }}

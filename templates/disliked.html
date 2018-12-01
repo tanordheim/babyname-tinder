@@ -1,0 +1,36 @@
+{{ define "content" }}
+<h1 class="babyname-heading">Disliked names</h1>
+<p>
+    These are all the names you have disliked.
+    <a href="/disliked/export_csv" class="btn btn-outline-secondary btn-sm">
+      <i class="fas fa-download"></i> Download CSV
+    </a>
+</p>
+
+<table class="table text-left">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col" class="text-right">When</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range . }}
+      <tr>
+        <td scope="row">
+          {{ .Name }}
+          <span class="badge badge-warning">{{ .Count }} times</span>
+        </td>
+        <td class="text-right">{{ .LastDislike }}</td>
+        <td class="text-right">
+          <form method="POST" action="/dislike/undo" class="babyname-delete-form">
+            <input type="hidden" name="name" value="{{ .Name }}">
+            <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+          </form>
+        </td>
+      </tr>
+    {{ end }}
+  </tbody>
+</table>
+{{ end }}
